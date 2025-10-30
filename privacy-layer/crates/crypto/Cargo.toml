@@ -1,0 +1,29 @@
+[package]
+name = "privacy-crypto"
+version = "0.1.0"
+edition = "2021"
+description = "Cryptographic primitives for privacy layer voting"
+
+[dependencies]
+# Curve25519 for ElGamal encryption (no_std compatible)
+curve25519-dalek = { version = "4.1", default-features = false, features = ["serde", "zeroize", "precomputed-tables"] }
+# Hashing (no_std compatible)
+sha2 = { version = "0.10", default-features = false }
+sha3 = { version = "0.10", default-features = false }
+# Serialization (no_std compatible)
+serde = { version = "1.0", default-features = false, features = ["derive"] }
+# Solana compatibility
+borsh = "0.10"
+bytemuck = { version = "1.14", features = ["derive"] }
+# Error handling
+thiserror = "1.0"
+
+[dev-dependencies]
+hex = "0.4"
+rand = "0.8"
+rand_core = "0.6"
+serde_json = "1.0"
+
+[features]
+default = []
+std = []

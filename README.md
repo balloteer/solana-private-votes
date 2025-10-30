@@ -1,6 +1,15 @@
 # Solana Private Votes - Privacy Layer
 
+[![Solana](https://img.shields.io/badge/Solana-Devnet-9945FF?style=flat&logo=solana)](https://solscan.io/account/APdSGnQuogNbYga3CZUZfSRpAz4agdufXbEPbGCCt9by?cluster=devnet)
+[![Anchor](https://img.shields.io/badge/Anchor-0.32-663399?style=flat)](https://www.anchor-lang.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![Twitter](https://img.shields.io/twitter/follow/BalloteerHQ?style=social)](https://twitter.com/BalloteerHQ)
+
 A production-grade privacy layer for Solana governance votes using **ElGamal encryption**, **Zero-Knowledge proofs**, and **Multi-Party Computation (MPC)** via the Arcium network.
+
+> **🏆 Hackathon Submission**: See [HACKATHON_SUBMISSION.md](./HACKATHON_SUBMISSION.md) for full details
+>
+> **⚡ Quick Demo**: See [DEMO.md](./DEMO.md) for 5-minute evaluation guide
 
 ## 🎯 Overview
 
@@ -12,6 +21,18 @@ This project implements a privacy-preserving voting system for Solana that ensur
 - ✅ **Eligibility Verification**: Zero-knowledge proofs ensure only registered voters can vote
 - ✅ **Distributed Trust**: No single party can decrypt individual votes (MPC-based)
 
+## 🌐 Live Deployment (Devnet)
+
+**Program Address**: `APdSGnQuogNbYga3CZUZfSRpAz4agdufXbEPbGCCt9by`
+
+**View on Solscan**: [https://solscan.io/account/APdSGnQuogNbYga3CZUZfSRpAz4agdufXbEPbGCCt9by?cluster=devnet](https://solscan.io/account/APdSGnQuogNbYga3CZUZfSRpAz4agdufXbEPbGCCt9by?cluster=devnet)
+
+```bash
+# Interact with the deployed program
+yarn demo  # Run interactive demo
+yarn benchmark  # View performance metrics
+```
+
 ## 📁 Project Structure
 
 ```
@@ -22,36 +43,49 @@ solana-private-votes/
 │   ├── crates/
 │   │   └── crypto/            # Cryptography library (ElGamal, nullifiers)
 │   ├── sdk/                   # TypeScript SDK
-│   ├── circuits/              # Circom ZK circuits (planned)
+│   ├── scripts/               # Deploy, demo, benchmark scripts
+│   ├── examples/              # Usage examples
 │   └── tests/                 # Integration tests
 ├── PRIVACY_LAYER_SPEC.md      # Complete technical specification
+├── DEMO.md                    # Quick demo guide (for judges)
 └── docs.arcium.com/           # Arcium MPC documentation mirror
 ```
 
 ## 🚀 Quick Start
 
+**⚡ For Hackathon Judges**: See [DEMO.md](./DEMO.md) for a 5-minute demo!
+
 ### Prerequisites
 
-- Rust 1.75+
-- Solana CLI 1.18+
-- Anchor 0.32+
-- Node.js 18+
-- Yarn or npm
+- Node.js 18+ (required)
+- Yarn or npm (required)
+- *Optional for deployment:* Rust 1.75+, Solana CLI 1.18+, Anchor 0.32+
 
-### Installation
+### Try the Demo (2 minutes)
+
+```bash
+cd solana-private-votes/privacy-layer
+yarn install
+yarn demo  # Connects to devnet, runs full demo
+```
+
+### Full Installation
 
 ```bash
 # Clone the repository
 cd solana-private-votes/privacy-layer
 
 # Install dependencies
-yarn install
+yarn setup
 
 # Build the program
-anchor build
+yarn build
+
+# Deploy to devnet (requires SOL)
+yarn deploy
 
 # Run tests
-anchor test
+yarn test
 ```
 
 ### Using the SDK

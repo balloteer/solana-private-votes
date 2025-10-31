@@ -3,7 +3,7 @@ use crate::state::*;
 use crate::errors::PrivacyError;
 
 #[derive(Accounts)]
-#[instruction(nullifier: [u8; 32])]
+#[instruction(ciphertext_c1: [u8; 32], ciphertext_c2: [u8; 32], nullifier: [u8; 32])]
 pub struct CastEncryptedVote<'info> {
     #[account(
         mut,
